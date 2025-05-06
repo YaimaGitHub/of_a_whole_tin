@@ -10,12 +10,12 @@ export default function PageLoader() {
     // Simulate loading time (you can remove this in production)
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 2000)
+    }, 2500)
 
     return () => clearTimeout(timer)
   }, [])
 
   if (!loading) return null
 
-  return <Loader message="Iniciando tienda" />
+  return <Loader message="Yero Shop de todo un tin" />
 }

@@ -154,6 +154,63 @@ export default function Loader({ message = "Cargando..." }) {
           0% { transform: translateX(-100%); }
           100% { transform: translateX(400%); }
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .circle-1 {
+            width: 80px;
+            height: 80px;
+          }
+          
+          .circle-2 {
+            width: 120px;
+            height: 120px;
+          }
+          
+          .circle-3 {
+            width: 160px;
+            height: 160px;
+          }
+          
+          .logo-pulse {
+            transform: scale(1.2);
+          }
+          
+          @keyframes pulse {
+            0%, 100% { transform: scale(1.2); }
+            50% { transform: scale(1.3); }
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .circle-1 {
+            width: 60px;
+            height: 60px;
+          }
+          
+          .circle-2 {
+            width: 100px;
+            height: 100px;
+          }
+          
+          .circle-3 {
+            width: 140px;
+            height: 140px;
+          }
+          
+          .logo-pulse {
+            transform: scale(1);
+          }
+          
+          @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+          }
+          
+          .loading-text {
+            font-size: 1rem;
+          }
+        }
       `}</style>
     </Box>
   )

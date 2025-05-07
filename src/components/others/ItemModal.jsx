@@ -20,6 +20,7 @@ import { refreshCart } from "../../recoil/state"
 import useIsInCart from "../../hooks/useIsInCart"
 import { useState, useEffect, useRef, useCallback } from "react"
 import useIsDesktop from "../../hooks/useIsDesktop"
+import productDescriptions from "../../data/productDescriptions"
 
 export default function ItemModal({ showModal, setModal, item }) {
   const { img, title, title1, price, offerPrice, category, id, stock } = item || {}
@@ -85,30 +86,21 @@ export default function ItemModal({ showModal, setModal, item }) {
   const cardBgColor = colorMode === "light" ? "white" : "gray.700"
 
   useEffect(() => {
-    // Generate a unique description based on the product
-    if (item) {
-      const descriptions = {
-        // Descriptions for different categories
-        Alimentos: `Este producto de alta calidad ofrece un sabor excepcional y frescura garantizada. Elaborado con ingredientes seleccionados cuidadosamente para asegurar la mejor experiencia gastronómica.`,
-        Aseo: `Producto de limpieza de primera calidad que garantiza resultados impecables. Su fórmula avanzada elimina eficazmente la suciedad mientras cuida las superficies.`,
-        Bebidas: `Refrescante bebida con un sabor único que satisface hasta los paladares más exigentes. Elaborada con ingredientes de primera calidad y un proceso que garantiza su frescura.`,
-        Cárnicos: `Selección premium de carne con el mejor sabor y textura. Proveniente de animales criados en condiciones óptimas, garantizando la máxima calidad.`,
-        Dulces: `Deliciosa golosina que combina sabores tradicionales con toques innovadores. Elaborada con ingredientes seleccionados para ofrecer una experiencia dulce incomparable.`,
-        Embutidos: `Embutido artesanal elaborado siguiendo recetas tradicionales con un toque moderno. Su sabor único y textura perfecta lo convierten en el complemento ideal para sus comidas.`,
-        Frutas: `Fruta fresca seleccionada en su punto óptimo de maduración. Rica en vitaminas y nutrientes esenciales para una dieta equilibrada.`,
-        Lácteos: `Producto lácteo de la más alta calidad, elaborado con leche fresca y procesos que preservan todos sus nutrientes. Su cremosa textura y sabor equilibrado lo hacen perfecto.`,
-        Limpieza: `Producto de limpieza profesional ahora disponible para su hogar. Su fórmula concentrada garantiza resultados superiores con menos producto.`,
-        Otros: `Producto esencial para su hogar, diseñado pensando en la practicidad y eficiencia. Su calidad superior garantiza durabilidad y satisfacción en cada uso.`,
-        Vegetales: `Vegetal fresco cultivado siguiendo prácticas sostenibles que respetan el medio ambiente. Rico en nutrientes esenciales y con un sabor auténtico.`,
+    // Get product description from our descriptions database
+    if (item && id) {
+      // Try to find the specific product description
+      const productDesc = productDescriptions[id]
+
+      if (productDesc && productDesc.description) {
+        setDescription(productDesc.description)
+      } else {
+        // Fallback to a generic description if specific one not found
+        setDescription(
+          `Producto de alta calidad seleccionado cuidadosamente para garantizar la mejor experiencia. Pertenece a la categoría ${category || "general"} y ofrece excelente relación calidad-precio.`,
+        )
       }
-
-      // Default description if category not found
-      const defaultDesc = `Este producto de alta calidad ha sido seleccionado cuidadosamente para garantizar la mejor experiencia. Su diseño versátil lo hace perfecto para múltiples usos.`
-
-      // Set description based on category or use default
-      setDescription(descriptions[category] || defaultDesc)
     }
-  }, [item])
+  }, [item, id, category])
 
   if (!item) return null
 

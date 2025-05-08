@@ -154,14 +154,14 @@ export default function PageLoader() {
 
   // Update loading text based on progress
   useEffect(() => {
-    if (progress < 40) {
-      setLoadingText("Yero Shop")
-    } else if (progress < 70) {
-      setLoadingText("de todo un tin")
-    } else if (progress < 100) {
+    if (progress < 30) {
+      setLoadingText("Iniciando tienda")
+    } else if (progress < 60) {
       setLoadingText("Cargando productos")
+    } else if (progress < 85) {
+      setLoadingText("Preparando interfaz")
     } else {
-      setLoadingText("¡Bienvenido!")
+      setLoadingText("¡Casi listo!")
     }
   }, [progress])
 

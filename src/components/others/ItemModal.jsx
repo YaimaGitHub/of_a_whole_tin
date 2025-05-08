@@ -243,6 +243,59 @@ export default function ItemModal({ showModal, setModal, item }) {
           Promoción
         </Badge>
       )}
+
+      {/* Navigation Arrows */}
+      <Flex
+        position="absolute"
+        top="50%"
+        left="0"
+        right="0"
+        justify="space-between"
+        transform="translateY(-50%)"
+        px="3"
+        zIndex="2"
+      >
+        <Box
+          bg="blackAlpha.600"
+          color="white"
+          borderRadius="full"
+          w={isPc ? "40px" : "30px"}
+          h={isPc ? "40px" : "30px"}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          cursor="pointer"
+          onClick={(e) => {
+            e.stopPropagation()
+            onSelect((currentIndex - 1 + images.length) % images.length)
+          }}
+          _hover={{ bg: "blackAlpha.800", transform: "scale(1.1)" }}
+          transition="all 0.2s"
+          boxShadow="md"
+        >
+          <Icon name="chevron-left" size={isPc ? "24px" : "18px"} />
+        </Box>
+        <Box
+          bg="blackAlpha.600"
+          color="white"
+          borderRadius="full"
+          w={isPc ? "40px" : "30px"}
+          h={isPc ? "40px" : "30px"}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          cursor="pointer"
+          onClick={(e) => {
+            e.stopPropagation()
+            onSelect((currentIndex + 1) % images.length)
+          }}
+          _hover={{ bg: "blackAlpha.800", transform: "scale(1.1)" }}
+          transition="all 0.2s"
+          boxShadow="md"
+        >
+          <Icon name="chevron-right" size={isPc ? "24px" : "18px"} />
+        </Box>
+      </Flex>
     </Box>
   )
 
@@ -345,7 +398,9 @@ export default function ItemModal({ showModal, setModal, item }) {
                 ) : (
                   <Flex align="center" justify="center" bg="green.50" p="3" borderRadius="md" boxShadow="md">
                     <Icon name="check-circle" color="green.500" mr="2" />
-                    <Text color="green.500">Producto en la cesta ({counter})</Text>
+                    <Text color="green.500">
+                      "{title}" en la cesta ({counter})
+                    </Text>
                   </Flex>
                 )}
               </Box>
@@ -446,7 +501,9 @@ export default function ItemModal({ showModal, setModal, item }) {
               ) : (
                 <Flex align="center" justify="center" bg="green.50" p="3" borderRadius="md" boxShadow="md">
                   <Icon name="check-circle" color="green.500" mr="2" />
-                  <Text color="green.500">Producto en la cesta ({counter})</Text>
+                  <Text color="green.500">
+                    "{title}" en la cesta ({counter})
+                  </Text>
                 </Flex>
               )}
             </Box>
@@ -502,6 +559,59 @@ export default function ItemModal({ showModal, setModal, item }) {
                       />
                     </Box>
                   ))}
+
+                  {/* Desktop Navigation Arrows */}
+                  <Flex
+                    position="absolute"
+                    top="50%"
+                    left="0"
+                    right="0"
+                    justify="space-between"
+                    transform="translateY(-50%)"
+                    px="4"
+                    zIndex="2"
+                  >
+                    <Box
+                      bg="blackAlpha.600"
+                      color="white"
+                      borderRadius="full"
+                      w="50px"
+                      h="50px"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      cursor="pointer"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setSelectedImage((selectedImage - 1 + productImages.length) % productImages.length)
+                      }}
+                      _hover={{ bg: "blackAlpha.800", transform: "scale(1.1)" }}
+                      transition="all 0.2s"
+                      boxShadow="lg"
+                    >
+                      <Icon name="chevron-left" size="24px" />
+                    </Box>
+                    <Box
+                      bg="blackAlpha.600"
+                      color="white"
+                      borderRadius="full"
+                      w="50px"
+                      h="50px"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      cursor="pointer"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setSelectedImage((selectedImage + 1) % productImages.length)
+                      }}
+                      _hover={{ bg: "blackAlpha.800", transform: "scale(1.1)" }}
+                      transition="all 0.2s"
+                      boxShadow="lg"
+                    >
+                      <Icon name="chevron-right" size="24px" />
+                    </Box>
+                  </Flex>
                 </Box>
               </Box>
 
@@ -671,7 +781,7 @@ export default function ItemModal({ showModal, setModal, item }) {
                     >
                       <Icon name="check-circle" color="green.500" mr="3" size="24px" />
                       <Text color="green.500" fontSize="lg">
-                        Producto en la cesta ({counter})
+                        "{title}" en la cesta ({counter})
                       </Text>
                     </Flex>
                   )}

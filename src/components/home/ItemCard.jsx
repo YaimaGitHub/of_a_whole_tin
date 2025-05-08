@@ -21,7 +21,8 @@ export default function ItemCard({ item }) {
     if (counter === 1 && isAdded === "noAdded") {
       toast({
         position: "bottom-left",
-        title: "Producto agregado a la cesta de compra.",
+        title: "Notificación:",
+        description: `"${title}" agregado a la cesta de compra.`,
         status: "success",
         duration: 1500,
       })
@@ -29,7 +30,8 @@ export default function ItemCard({ item }) {
     } else if (counter === 0 && isAdded === "added") {
       toast({
         position: "bottom-left",
-        title: "Producto eliminado de la cesta de compra.",
+        title: "Notificación:",
+        description: `"${title}" eliminado de la cesta de compra.`,
         status: "error",
         duration: 1500,
       })
@@ -39,7 +41,7 @@ export default function ItemCard({ item }) {
     } else if (isAdded === "initial" && counter > 0) {
       setAdded("added")
     }
-  }, [counter])
+  }, [counter, title, toast])
 
   // Card colors based on theme
   const cardBg = colorMode === "light" ? "white" : "gray.700"

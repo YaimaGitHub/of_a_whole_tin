@@ -149,7 +149,7 @@ function ConfirmAlertModal({ showModal, setModal }) {
                   </Text>
                 </Flex>
                 <Text fontSize="sm" color="blue.700">
-                  Al confirmar tu pedido, los productos serán descontados del inventario. Los productos en tu carrito
+                  Al confirmar tu pedido, los productos serán descontados del inventario. Los productos en tu cesta
                   están reservados temporalmente.
                 </Text>
               </Box>

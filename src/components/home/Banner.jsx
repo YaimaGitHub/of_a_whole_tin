@@ -33,12 +33,22 @@ export default function Banner() {
       title: "Panadería y Dulcería",
       subtitle: "Variedades de dulces y exquisitos trabajo de repostería!!!",
     },
+    {
+      image: "/images/1590150435542.jpg",
+      title: "Tienda: Yero Shop",
+      subtitle: "Una mejor manera de comprar los productos que te encantan.!!!",
+    },
+    {
+      image: "/images/free-delivery-express-moto-scooter-260nw-1934715215.jpg",
+      title: "Entrega rápida",
+      subtitle: "Puedes comprar tus artículos en línea y recogerlos o recibirlos directamente en tu domicilio.!!!",
+    },
   ]
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev === bannerImages.length - 1 ? 0 : prev + 1))
-    }, 5000)
+    }, 7000)
     return () => clearInterval(interval)
   }, [bannerImages.length])
 

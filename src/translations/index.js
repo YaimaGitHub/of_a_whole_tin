@@ -35,8 +35,8 @@ export const translations = {
     },
     // Cart
     cart: {
-      title: "Carrito de Compra",
-      empty: "No hay productos en tu carrito",
+      title: "Cesta de Compra",
+      empty: "No hay productos en tu cesta",
       emptyMessage: "Agrega productos para continuar con tu compra",
       subTotal: "Sub Total",
       shipping: "Envío",

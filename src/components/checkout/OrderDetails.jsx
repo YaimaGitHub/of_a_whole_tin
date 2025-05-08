@@ -169,7 +169,7 @@ function OrderDetails() {
       ) : (
         <Flex direction="column" align="center" justify="center" p="8" bg={gray50} borderRadius="md" boxShadow="sm">
           <Text color={textColor} fontSize="lg" textAlign="center">
-            No hay productos en tu carrito
+            No hay productos en tu cesta
           </Text>
           <Text color={gray500_400} fontSize="sm" textAlign="center" mt="2">
             Agrega productos para continuar con tu compra

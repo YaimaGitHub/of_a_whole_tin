@@ -26,7 +26,7 @@ const Cart = ({ showCart = false, setCart }) => {
       <DrawerContent p="4" className={showCart ? "slide-in-right" : ""}>
         <Flex justify="space-between" align="center" w="100%" mb="4">
           <Heading as="h2" size="xl" color="bluex.600">
-            Tu Carrito
+            Tu Cesta
           </Heading>
           <DrawerCloseButton size="lg" position="static" />
         </Flex>
@@ -42,7 +42,7 @@ const Cart = ({ showCart = false, setCart }) => {
               <Icon as={BiShoppingBag} size="80px" color="gray.300" />
             </Box>
             <Text fontSize="xl" fontWeight="medium" color="gray.500" textAlign="center">
-              Tu carrito está vacío
+              Tu cesta está vacía
             </Text>
             <Text fontSize="md" color="gray.400" textAlign="center" mt="2">
               Agrega productos para comenzar tu compra

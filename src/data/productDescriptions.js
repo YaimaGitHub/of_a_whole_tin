@@ -324,25 +324,36 @@ const productDescriptions = {
   // Productos de Bakery - Muffin
   muffin: {
     id: "muffin",
-    title: "Thomas Cinnamon Raisin English Muffins",
+    title: "Cake",
     subcategory: "Muffin",
     description:
-      "Muffins ingleses tradicionales enriquecidos con canela de Ceilán y pasas sultanas hidratadas en zumo de naranja. Elaborados siguiendo el método clásico con fermentación lenta que desarrolla alveolos característicos. Textura esponjosa ideal para tostar. Perfectos para desayunos y brunch, tradicionales con mantequilla o elaborados con huevos benedictine. Conservar en refrigeración y tostar antes de consumir para realzar aromas y sabores.",
+      "Cake de 20cm, masa suave mojada en almíbar, doble relleno de crema de chocolate con leche, o fresa con leche maní y granjas.",
   },
   muffin2: {
     id: "muffin2",
-    title: "Mini Zucchini & Carrot Muffin",
+    title: "Cake",
     subcategory: "Muffin",
     description:
-      "Mini muffins saludables elaborados con calabacín y zanahoria frescos que aportan humedad natural y reducen el contenido de grasa. Endulzados parcialmente con plátano maduro que complementa el sabor de las verduras. Enriquecidos con semillas de chía y nueces troceadas que aportan textura y nutrientes. Ideales para meriendas infantiles o snack saludable. Conservar refrigerados y consumir en 3 días o congelar para mayor duración.",
+      "Cake de 20cm, masa suave mojada en almíbar, doble relleno de crema de chocolate con leche, o fresa con leche maní y granjas.",
   },
+
+// Productos de Bakery - Muffin
+muffin0: {
+  id: "muffin0",
+  title: "Cake",
+  subcategory: "Muffin",
+  description:
+    "Cake de bandeja. Decorado a su gusto, la temática de su preferencia. Exquisito relleno y sabor especial.",
+  },
+
   muffin3: {
     id: "muffin3",
-    title: "Double Chocolate Oat Muffin ",
+    title: "MiniCake ",
     subcategory: "Muffin",
     description:
-      "Muffin indulgente de doble chocolate elaborado con cacao puro y trozos de chocolate negro 70%. Base de avena hidratada que aporta textura húmeda y reduce el contenido de harina refinada. Cobertura crujiente de avena caramelizada y más chocolate. Equilibrio perfecto entre intensidad de chocolate y dulzor moderado. Ideal como capricho ocasional o para ocasiones especiales. Calentar ligeramente antes de consumir para potenciar aromas y fundir parcialmente el chocolate.",
+      "MiniCake de 15cm.Masa suave y relleno con crema de chocolatey leche o crema de chocolate y leche. Incluye cibertura 2M y granjas",
   },
+
 
   // Productos de Drink - Tea
   tea: {

@@ -351,7 +351,7 @@ muffin0: {
     title: "MiniCake ",
     subcategory: "Muffin",
     description:
-      "MiniCake de 15cm.Masa suave y relleno con crema de chocolatey leche o crema de chocolate y leche. Incluye cibertura 2M y granjas",
+      "MiniCake de 15cm Masa suave y relleno con crema de chocolate y leche. Incluye cobertura 2M y grajeas",
   },
 
 

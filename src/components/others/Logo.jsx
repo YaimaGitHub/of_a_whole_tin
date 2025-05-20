@@ -4,7 +4,7 @@ export default function Logo({ width = 100 }) {
       <image
         x="-165"
         y="-0"
-        width="400"
+        width="390"
         height="50"
         href="https://f005.backblazeb2.com/file/120000/logo.svg"
       />

@@ -337,23 +337,21 @@ const productDescriptions = {
       "Cake de 20cm, masa suave mojada en almíbar, doble relleno de crema de chocolate con leche, o fresa con leche maní y granjas.",
   },
 
-// Productos de Bakery - Muffin
-muffin0: {
-  id: "muffin0",
-  title: "Cake",
-  subcategory: "Muffin",
-  description:
-    "Cake de bandeja. Decorado a su gusto, la temática de su preferencia. Exquisito relleno y sabor especial.",
+  // Productos de Bakery - Muffin
+  muffin0: {
+    id: "muffin0",
+    title: "Cake",
+    subcategory: "Muffin",
+    description:
+      "Cake de bandeja. Decorado a su gusto, la temática de su preferencia. Exquisito relleno y sabor especial.",
   },
 
   muffin3: {
     id: "muffin3",
     title: "MiniCake ",
     subcategory: "Muffin",
-    description:
-      "MiniCake de 15cm Masa suave y relleno con crema de chocolate y leche. Incluye cobertura 2M y grajeas",
+    description: "MiniCake de 15cm Masa suave y relleno con crema de chocolate y leche. Incluye cobertura 2M y grajeas",
   },
-
 
   // Productos de Drink - Tea
   tea: {

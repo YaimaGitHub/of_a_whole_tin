@@ -2,7 +2,6 @@ import { ThemeProvider, CSSReset } from "@chakra-ui/core"
 import Head from "next/head"
 import { RecoilRoot } from "recoil"
 import theme from "../theme"
-import PageLoader from "../components/others/PageLoader"
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -14,7 +13,6 @@ function MyApp({ Component, pageProps }) {
       <RecoilRoot>
         <ThemeProvider theme={theme}>
           <CSSReset />
-          <PageLoader />
           <Component {...pageProps} />
         </ThemeProvider>
       </RecoilRoot>

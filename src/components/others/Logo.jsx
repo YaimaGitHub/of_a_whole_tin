@@ -5,7 +5,7 @@ export default function Logo({ width = 100 }) {
         x="-165"
         y="-0"
         width="400"
-        height="60"
+        height="50"
         href="https://f005.backblazeb2.com/file/120000/logo.svg"
       />
     </svg>

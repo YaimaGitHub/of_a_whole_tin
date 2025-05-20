@@ -11,6 +11,7 @@ export const translations = {
       bakery: "Panadería y Dulcería",
       drinks: "Bebidas",
       clothing: "Ropa, calzado",
+      Computers:  "Ordenadores",
       components: "Componentes de PC",
     },
     // Settings

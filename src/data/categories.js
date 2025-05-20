@@ -65,6 +65,16 @@ export const categoryHierarchy = {
       { name: "Fuentes de alimentación", icon: "power" },
       { name: "Otros componentes", icon: "component" },
     ],
+   },
+Computers: {
+    icon: "Computers",
+    subcategories: [
+      { name: "Portátiles", icon: "Ordenadores" },
+      { name: "Portátiles por marca", icon: "marca" },
+      { name: "Accesorios para portátiles", icon: "accesorios" },
+      { name: "PC sobremesa por marca", icon: "desktop" },
+      { name: "Software", icon: "hard-drive" },
+    ],
   },
 }
 

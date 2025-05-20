@@ -1,7 +1,7 @@
 "use client"
 
 import { Box, RadioButtonGroup } from "@chakra-ui/core"
-import { BiCake, BiDish, BiDrink, BiFirstAid, BiHomeAlt, BiShoppingBag, BiStore, BiLaptop } from "react-icons/bi"
+import { BiCake, BiDish, BiDrink, BiFirstAid, BiHomeAlt, BiShoppingBag, BiStore, BiLaptop, BiDesktop, BiDevices } from "react-icons/bi"
 import CustomRadio from "../others/CustomRadio"
 import { useRecoilState } from "recoil"
 import { selectedCategory } from "../../recoil/state"
@@ -124,13 +124,32 @@ export default function Sidebar({ showSidebar, setSidebar }) {
             />
           }
           colorScheme={categoryColors.Ropa_calzado_accesorios}
+
+
+// agregado recientemente
+        />
+        <CustomRadio
+          value="Computers"
+          title="Ordenadores"
+          icon={
+            <Box
+              as={BiLaptop}
+              size="24px"
+              mr="10"
+              className="sidebar-icon category-Computers"
+              data-category="Ordenadores"
+            />
+          }
+          colorScheme={categoryColors.Ropa_calzado_accesorios}
+
+
         />
         <CustomRadio
           value="Components"
           title="Componentes de PC"
           icon={
             <Box
-              as={BiLaptop}
+              as={BiDevices}
               size="24px"
               mr="10"
               className="sidebar-icon category-components"

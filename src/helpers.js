@@ -52,17 +52,14 @@ export const getFormValidations = () => {
         message: "Se requiere dirección",
       },
       maxLength: {
-        value: 30,
-        message: "Longitud máxima 30 caracteres",
+        value: 50,
+        message: "Longitud máxima 50 caracteres",
       },
       minLength: {
         value: 5,
         message: "Longitud mínima 5 caracteres",
       },
-      pattern: {
-        value: /^[0-9a-zA-Z ]{5,20}$/,
-        message: "Dirección incorrecta",
-      },
+      // Removed restrictive pattern to allow special characters
     },
     //city
     city: {

@@ -11,8 +11,9 @@ export const translations = {
       bakery: "Panadería y Dulcería",
       drinks: "Bebidas",
       clothing: "Ropa, calzado",
-      Computers:  "Ordenadores",
+      Computers: "Ordenadores",
       components: "Componentes de PC",
+      Photography: "Fotografía y Accesorios",
     },
     // Settings
     settings: {
@@ -58,7 +59,7 @@ export const translations = {
       phone: "Teléfono",
       phonePlaceholder: "Número de teléfono",
       address: "Dirección",
-      addressPlaceholder: "Tu dirección completa",
+      addressPlaceholder: "Calle, número, apartamento, referencias...",
       deliveryZone: "Zona de Entrega",
       deliveryZonePlaceholder: "-- Seleccione zona de entrega --",
       paymentMethod: "Método de Pago",
@@ -148,7 +149,7 @@ export const translations = {
       phone: "Phone",
       phonePlaceholder: "Phone number",
       address: "Address",
-      addressPlaceholder: "Your complete address",
+      addressPlaceholder: "Street, number, apartment, landmarks...",
       deliveryZone: "Delivery Zone",
       deliveryZonePlaceholder: "-- Select delivery zone --",
       paymentMethod: "Payment Method",

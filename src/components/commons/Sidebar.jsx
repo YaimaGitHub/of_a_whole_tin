@@ -1,7 +1,7 @@
 "use client"
 
 import { Box, RadioButtonGroup } from "@chakra-ui/core"
-import { BiCake, BiDish, BiDrink, BiFirstAid, BiHomeAlt, BiShoppingBag, BiStore, BiLaptop, BiDesktop, BiDevices } from "react-icons/bi"
+import { BiCake, BiDish, BiDrink, BiFirstAid, BiHomeAlt, BiShoppingBag, BiStore, BiLaptop, BiDesktop, BiDevices, BiPhotoAlbum, BiCamera, BiCameraHome, BiCameraMovie, BiCameraOff } from "react-icons/bi"
 import CustomRadio from "../others/CustomRadio"
 import { useRecoilState } from "recoil"
 import { selectedCategory } from "../../recoil/state"
@@ -126,7 +126,7 @@ export default function Sidebar({ showSidebar, setSidebar }) {
           colorScheme={categoryColors.Ropa_calzado_accesorios}
 
 
-// agregado recientemente
+// agregado recientemente Ordenadores
         />
         <CustomRadio
           value="Computers"
@@ -140,9 +140,10 @@ export default function Sidebar({ showSidebar, setSidebar }) {
               data-category="Ordenadores"
             />
           }
-          colorScheme={categoryColors.Ropa_calzado_accesorios}
+          colorScheme={categoryColors.Computers}
 
 
+// agregado recientemente Componentes de PC
         />
         <CustomRadio
           value="Components"
@@ -157,6 +158,28 @@ export default function Sidebar({ showSidebar, setSidebar }) {
             />
           }
           colorScheme={categoryColors.Components}
+
+
+
+// agregado recientemente Fotografía y Accesorios
+/>
+        <CustomRadio
+          value="Photography"
+          title="Fotografía y Accesorios"
+          icon={
+            <Box
+              as={BiCamera}
+              size="24px"
+              mr="10"
+              className="sidebar-icon category-Computers"
+              data-category="Photography"
+            />
+          }
+          colorScheme={categoryColors.Photography}
+
+
+
+
         />
       </RadioButtonGroup>
 

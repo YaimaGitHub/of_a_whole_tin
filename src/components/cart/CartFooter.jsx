@@ -81,7 +81,16 @@ function CartFooter() {
         >
           <Flex align="center" justify="center" w="100%">
             <Icon as={BiShoppingBag} mr="2" size="24px" />
-            <Text fontSize="lg">Verificar Compra</Text>
+            {/* Mejorado para mayor contraste */}
+            <Text
+              fontSize="lg"
+              fontWeight="extrabold"
+              color="white"
+              textShadow="0px 1px 2px rgba(0,0,0,0.3)"
+              letterSpacing="0.5px"
+            >
+              Verificar Compra
+            </Text>
             <Icon as={BiRightArrowAlt} ml="2" size="24px" />
           </Flex>
         </Button>

@@ -1,13 +1,13 @@
 "use client"
 
-import { Badge, Box, Flex, Image, Text, useToast, useColorMode } from "@chakra-ui/core"
+import { Badge, Box, Flex, Image, Text, useToast, useColorMode, PseudoBox } from "@chakra-ui/core"
 import { useEffect, useState } from "react"
 import useIsInCart from "../../hooks/useIsInCart"
 import CounterBtn from "../others/CounterBtn"
 import ItemModal from "../others/ItemModal"
 
 export default function ItemCard({ item }) {
-  const { title, title1, price, img, offerPrice, category } = item
+  const { title, title1, price, img, offerPrice, category, allowBankTransfer = true } = item
 
   //HOOKS
   const [showModal, setModal] = useState(false)
@@ -102,6 +102,41 @@ export default function ItemCard({ item }) {
         >
           {category}
         </Badge>
+
+        {/* Payment Method Badge - Mejorado para mayor contraste */}
+        {!allowBankTransfer && (
+          <PseudoBox
+            position="absolute"
+            px="3"
+            py="1"
+            top={offerPrice ? "40px" : "10px"}
+            right="10px"
+            borderRadius="full"
+            zIndex="1"
+            fontSize="xs"
+            fontWeight="bold"
+            bg="#FF3B30" // Rojo más brillante para mejor contraste
+            color="white"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            boxShadow="0 0 8px rgba(255, 59, 48, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.1)"
+            transition="all 0.3s ease"
+            _hover={{
+              transform: "scale(1.05)",
+              boxShadow: "0 0 12px rgba(255, 59, 48, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.2)",
+            }}
+            className="payment-restriction-badge"
+            letterSpacing="0.5px"
+          >
+            <PseudoBox as="span" display="inline-block" mr="1" className="shake-icon" fontSize="10px">
+              🔒
+            </PseudoBox>
+            <Text as="span" fontWeight="extrabold" textShadow="0px 1px 2px rgba(0,0,0,0.3)">
+              Solo efectivo
+            </Text>
+          </PseudoBox>
+        )}
 
         <Box
           w="100%"

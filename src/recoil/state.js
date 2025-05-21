@@ -63,6 +63,15 @@ export const productStock = atom({
   default: {},
 })
 
+// New selector to check if bank transfer is allowed for all cart items
+export const isBankTransferAllowed = selector({
+  key: "isBankTransferAllowed",
+  get: ({ get }) => {
+    const cartItems = get(cart)
+    return Object.values(cartItems).every((item) => item.allowBankTransfer !== false)
+  },
+})
+
 //SELECTORS
 export const availableSubcategories = selector({
   key: "availableSubcategories",

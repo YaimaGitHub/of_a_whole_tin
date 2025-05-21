@@ -22,27 +22,42 @@ import {
 
 import { BiCalendar, BiComment, BiMap, BiMapAlt, BiPhone, BiTime, BiUser } from "react-icons/bi"
 import { useForm } from "react-hook-form"
-import { useRecoilState, useSetRecoilState } from "recoil"
-import { formState, selectedLocation, selectedPaymentMethod } from "../../recoil/state"
+import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil"
+import { formState, selectedLocation, selectedPaymentMethod, cart } from "../../recoil/state"
 import ConfirmAlertModal from "../others/ConfirmAlertModal"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { getFormValidations, getLocationPrices } from "../../helpers"
 
 function CheckoutForm() {
   const setForm = useSetRecoilState(formState)
   const [location, setLocation] = useRecoilState(selectedLocation)
   const [paymentMethod, setPaymentMethod] = useRecoilState(selectedPaymentMethod)
+  const cartItemsValue = useRecoilValue(cart)
   const { register, errors, handleSubmit } = useForm({ mode: "onTouched" })
   const [showModal, setModal] = useState(false)
   const validations = getFormValidations()
   const locationPrices = getLocationPrices()
   const { colorMode } = useColorMode()
+  const [bankTransferAllowed, setBankTransferAllowed] = useState(true)
 
   // Colors for modern UI
   const bgColor = colorMode === "light" ? "white" : "gray.800"
   const borderColor = colorMode === "light" ? "gray.200" : "gray.700"
   const inputBgColor = colorMode === "light" ? "gray.50" : "gray.700"
   const headingColor = colorMode === "light" ? "bluex.600" : "white"
+
+  // Check if all items in cart allow bank transfer
+  useEffect(() => {
+    if (cartItemsValue) {
+      const allItemsAllowBankTransfer = Object.values(cartItemsValue).every((item) => item.allowBankTransfer !== false)
+      setBankTransferAllowed(allItemsAllowBankTransfer)
+
+      // If bank transfer is not allowed and it's currently selected, switch to cash
+      if (!allItemsAllowBankTransfer && paymentMethod === "bank") {
+        setPaymentMethod("cash")
+      }
+    }
+  }, [cartItemsValue, paymentMethod, setPaymentMethod])
 
   const onSubmit = (formState) => {
     setForm(formState)
@@ -143,7 +158,7 @@ function CheckoutForm() {
                 id="address"
                 type="text"
                 name="address"
-                placeholder="Tu dirección completa"
+                placeholder="Calle, número, apartamento, referencias..."
                 variant="filled"
                 bg={inputBgColor}
                 ref={register(validations.address)}
@@ -156,6 +171,9 @@ function CheckoutForm() {
                 {errors.address.message}
               </Text>
             )}
+            <Text fontSize="xs" color="gray.500" mt="1">
+              Incluya detalles como número de casa/apartamento y puntos de referencia
+            </Text>
           </FormControl>
 
           <FormControl isInvalid={errors.city} mb="4">
@@ -177,11 +195,13 @@ function CheckoutForm() {
                 borderRadius="md"
                 focusBorderColor="bluex.400"
               >
-                {Object.entries(locationPrices).map(([locationName, price]) => (
-                  <option key={locationName} value={locationName}>
-                    {locationName} - ${price} CUP
-                  </option>
-                ))}
+                {Object.entries(locationPrices)
+                  .sort()
+                  .map(([locationName, price]) => (
+                    <option key={locationName} value={locationName}>
+                      {locationName} - ${price} CUP
+                    </option>
+                  ))}
               </Select>
             </InputGroup>
             {errors.city && (
@@ -189,6 +209,9 @@ function CheckoutForm() {
                 {errors.city.message}
               </Text>
             )}
+            <Text fontSize="xs" color="gray.500" mt="1">
+              El costo de envío varía según la zona seleccionada
+            </Text>
           </FormControl>
 
           {/* Add Payment Method Selection */}
@@ -196,6 +219,35 @@ function CheckoutForm() {
             <FormLabel htmlFor="paymentMethod" fontSize="sm" fontWeight="medium">
               Método de Pago
             </FormLabel>
+
+            {!bankTransferAllowed && (
+              <PseudoBox
+                as={Alert}
+                status="warning"
+                mb="3"
+                borderRadius="md"
+                boxShadow="0 0 10px rgba(255, 159, 0, 0.3)"
+                position="relative"
+                overflow="hidden"
+                className="pulse-alert"
+              >
+                <Box
+                  position="absolute"
+                  top="0"
+                  left="0"
+                  right="0"
+                  bottom="0"
+                  bg="linear-gradient(45deg, rgba(255, 159, 0, 0.1) 0%, rgba(255, 159, 0, 0.2) 50%, rgba(255, 159, 0, 0.1) 100%)"
+                  className="pulse-bg"
+                  zIndex="0"
+                />
+                <AlertIcon />
+                <Box fontSize="sm" position="relative" zIndex="1">
+                  <Text fontWeight="medium">Algunos productos en su carrito solo aceptan pago en efectivo</Text>
+                </Box>
+              </PseudoBox>
+            )}
+
             <RadioGroup id="paymentMethod" value={paymentMethod} onChange={handlePaymentMethodChange} spacing={4}>
               <Stack direction="column" spacing={3}>
                 <Box
@@ -207,6 +259,7 @@ function CheckoutForm() {
                   bg={paymentMethod === "cash" ? "bluex.50" : inputBgColor}
                   cursor="pointer"
                   _hover={{ bg: "bluex.50" }}
+                  transition="all 0.3s ease"
                 >
                   <Flex align="center">
                     <Box
@@ -227,16 +280,45 @@ function CheckoutForm() {
                   </Flex>
                 </Box>
 
-                <Box
+                <PseudoBox
                   as="label"
                   p={3}
                   borderWidth="1px"
                   borderRadius="md"
                   borderColor={paymentMethod === "bank" ? "bluex.400" : borderColor}
                   bg={paymentMethod === "bank" ? "bluex.50" : inputBgColor}
-                  cursor="pointer"
-                  _hover={{ bg: "bluex.50" }}
+                  cursor={bankTransferAllowed ? "pointer" : "not-allowed"}
+                  _hover={bankTransferAllowed ? { bg: "bluex.50" } : {}}
+                  opacity={bankTransferAllowed ? 1 : 0.5}
+                  pointerEvents={bankTransferAllowed ? "auto" : "none"}
+                  position="relative"
+                  transition="all 0.3s ease"
                 >
+                  {/* Candado animado para opción deshabilitada */}
+                  {!bankTransferAllowed && (
+                    <PseudoBox
+                      position="absolute"
+                      top="-10px"
+                      right="-10px"
+                      width="30px"
+                      height="30px"
+                      borderRadius="full"
+                      bg="red.500"
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      color="white"
+                      fontSize="14px"
+                      boxShadow="0 0 10px rgba(255, 59, 48, 0.7)"
+                      className="float-lock"
+                      zIndex="2"
+                    >
+                      <PseudoBox as="span" className="shake-icon">
+                        🔒
+                      </PseudoBox>
+                    </PseudoBox>
+                  )}
+
                   <Flex align="center">
                     <Box
                       as="input"
@@ -246,6 +328,7 @@ function CheckoutForm() {
                       checked={paymentMethod === "bank"}
                       onChange={handlePaymentMethodChange}
                       mr={3}
+                      disabled={!bankTransferAllowed}
                     />
                     <Box>
                       <Text fontWeight="medium">Transferencia Bancaria</Text>
@@ -254,7 +337,7 @@ function CheckoutForm() {
                       </Text>
                     </Box>
                   </Flex>
-                </Box>
+                </PseudoBox>
               </Stack>
             </RadioGroup>
 

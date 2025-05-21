@@ -35,6 +35,8 @@ import {
   useColorMode,
   InputGroup,
   InputLeftElement,
+  Switch,
+  FormHelperText,
 } from "@chakra-ui/core"
 import { useState, useEffect } from "react"
 import { nanoid } from "nanoid"
@@ -77,12 +79,16 @@ export default function ProductManagement() {
       img: "",
       additionalImages: [], // Add this new field
       category: "Electrodomésticos",
+      allowBankTransfer: true, // Default to allowing bank transfer
     })
     onOpen()
   }
 
   const handleEditProduct = (product) => {
-    setCurrentProduct({ ...product })
+    setCurrentProduct({
+      ...product,
+      allowBankTransfer: product.allowBankTransfer !== false, // Default to true if not specified
+    })
     onOpen()
   }
 
@@ -139,6 +145,14 @@ export default function ProductManagement() {
     setCurrentProduct({
       ...currentProduct,
       [name]: value,
+    })
+  }
+
+  const handleSwitchChange = (e) => {
+    const { name, checked } = e.target
+    setCurrentProduct({
+      ...currentProduct,
+      [name]: checked,
     })
   }
 
@@ -219,6 +233,7 @@ export default function ProductManagement() {
               <Th>Precio (CUP)</Th>
               <Th>Oferta (CUP)</Th>
               <Th>Stock</Th>
+              <Th>Transferencia</Th>
               <Th>Acciones</Th>
             </Tr>
           </Thead>
@@ -270,6 +285,11 @@ export default function ProductManagement() {
                   )}
                 </Td>
                 <Td>{product.stock}</Td>
+                <Td>
+                  <Badge colorScheme={product.allowBankTransfer !== false ? "green" : "red"}>
+                    {product.allowBankTransfer !== false ? "Permitido" : "No permitido"}
+                  </Badge>
+                </Td>
                 <Td>
                   <Flex>
                     <IconButton
@@ -411,6 +431,23 @@ export default function ProductManagement() {
                   </NumberInput>
                 </FormControl>
               </Flex>
+
+              {/* Payment Method Control */}
+              <FormControl>
+                <FormLabel color={textColor}>Permitir pago por transferencia bancaria</FormLabel>
+                <Switch
+                  name="allowBankTransfer"
+                  isChecked={currentProduct?.allowBankTransfer !== false}
+                  onChange={handleSwitchChange}
+                  colorScheme="green"
+                  size="lg"
+                />
+                <FormHelperText>
+                  {currentProduct?.allowBankTransfer !== false
+                    ? "Los clientes podrán pagar este producto mediante transferencia bancaria"
+                    : "Este producto solo podrá pagarse en efectivo"}
+                </FormHelperText>
+              </FormControl>
 
               <FormControl>
                 <FormLabel color={textColor}>Ruta de Imagen</FormLabel>

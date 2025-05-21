@@ -14,6 +14,7 @@ import {
   useColorMode,
   Grid,
   Icon,
+  PseudoBox,
 } from "@chakra-ui/core"
 import { useSetRecoilState } from "recoil"
 import { refreshCart } from "../../recoil/state"
@@ -23,7 +24,7 @@ import useIsDesktop from "../../hooks/useIsDesktop"
 import productDescriptions from "../../data/productDescriptions"
 
 export default function ItemModal({ showModal, setModal, item }) {
-  const { img, title, title1, price, offerPrice, category, id, stock } = item || {}
+  const { img, title, title1, price, offerPrice, category, id, stock, allowBankTransfer = true } = item || {}
   const setCart = useSetRecoilState(refreshCart)
   const counter = useIsInCart(item || {})
   const { colorMode } = useColorMode()
@@ -244,6 +245,38 @@ export default function ItemModal({ showModal, setModal, item }) {
         </Badge>
       )}
 
+      {/* Payment Method Badge - Mejorado para mayor contraste */}
+      {!allowBankTransfer && (
+        <PseudoBox
+          position="absolute"
+          top={offerPrice ? "16" : "6"}
+          right="6"
+          px="4"
+          py="2"
+          borderRadius="md"
+          bg="#FF3B30" // Rojo más brillante para mejor contraste
+          color="white"
+          fontSize={isPc ? "sm" : "xs"}
+          zIndex="2"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          boxShadow="0 0 10px rgba(255, 59, 48, 0.7), 0 0 0 1px rgba(0, 0, 0, 0.1)"
+          transition="all 0.3s ease"
+          _hover={{
+            transform: "scale(1.05)",
+            boxShadow: "0 0 15px rgba(255, 59, 48, 0.9), 0 0 0 1px rgba(0, 0, 0, 0.2)",
+          }}
+          className="payment-restriction-badge"
+          letterSpacing="0.5px"
+        >
+          <Icon name="lock" size="16px" mr="2" className="shake-icon" />
+          <Text fontWeight="extrabold" textShadow="0px 1px 2px rgba(0,0,0,0.3)">
+            Solo efectivo
+          </Text>
+        </PseudoBox>
+      )}
+
       {/* Navigation Arrows */}
       <Flex
         position="absolute"
@@ -367,6 +400,66 @@ export default function ItemModal({ showModal, setModal, item }) {
                 {description}
               </Box>
 
+              {/* Payment Method Information - Mejorado para mayor contraste */}
+              <PseudoBox
+                bg={allowBankTransfer ? "green.50" : "#FFEFEF"} // Fondo más claro para el rojo
+                p="4"
+                borderRadius="md"
+                mb="4"
+                fontSize="sm"
+                color={allowBankTransfer ? "green.700" : "#D10000"} // Rojo más oscuro para mejor contraste
+                position="relative"
+                overflow="hidden"
+                boxShadow={
+                  allowBankTransfer
+                    ? "0 0 10px rgba(72, 187, 120, 0.3)"
+                    : "0 0 10px rgba(245, 101, 101, 0.3), 0 0 0 1px rgba(255, 0, 0, 0.1)"
+                }
+                transition="all 0.3s ease"
+                _hover={{
+                  transform: "translateY(-2px)",
+                  boxShadow: allowBankTransfer
+                    ? "0 0 15px rgba(72, 187, 120, 0.4)"
+                    : "0 0 15px rgba(245, 101, 101, 0.4), 0 0 0 1px rgba(255, 0, 0, 0.2)",
+                }}
+                className={!allowBankTransfer ? "fade-in-out" : ""}
+              >
+                {/* Animated background gradient for restricted payment */}
+                {!allowBankTransfer && (
+                  <Box
+                    position="absolute"
+                    top="0"
+                    left="0"
+                    right="0"
+                    bottom="0"
+                    bg="linear-gradient(45deg, rgba(245, 101, 101, 0.1) 0%, rgba(245, 101, 101, 0.2) 50%, rgba(245, 101, 101, 0.1) 100%)"
+                    className="pulse-bg"
+                    zIndex="0"
+                  />
+                )}
+
+                <Flex align="center" position="relative" zIndex="1">
+                  <PseudoBox
+                    as={Icon}
+                    name={allowBankTransfer ? "check-circle" : "warning"}
+                    mr="3"
+                    color={allowBankTransfer ? "green.500" : "#D10000"} // Rojo más oscuro
+                    size="24px"
+                    className={!allowBankTransfer ? "shake-icon" : ""}
+                  />
+                  <Box>
+                    <Text fontWeight="bold" fontSize="md">
+                      {allowBankTransfer ? "Métodos de pago disponibles" : "Restricción de pago"}
+                    </Text>
+                    <Text mt="1" fontWeight="medium">
+                      {allowBankTransfer
+                        ? "Este producto acepta pago en efectivo y transferencia bancaria"
+                        : "Este producto solo puede pagarse en efectivo"}
+                    </Text>
+                  </Box>
+                </Flex>
+              </PseudoBox>
+
               <Flex
                 bg={colorMode === "light" ? "gray.50" : "gray.700"}
                 p="3"
@@ -478,9 +571,25 @@ export default function ItemModal({ showModal, setModal, item }) {
                     <Text color={textColor}>Stock:</Text>
                     <Text color={subTextColor}>{stock} unidades</Text>
                   </Flex>
-                  <Flex justify="space-between">
+                  <Flex justify="space-between" mb="2">
                     <Text color={textColor}>Garantía:</Text>
                     <Text color={subTextColor}>30 días</Text>
+                  </Flex>
+                  <Flex justify="space-between">
+                    <Text color={textColor}>Pago por transferencia:</Text>
+                    <PseudoBox
+                      color={allowBankTransfer ? "green.500" : "#D10000"} // Rojo más oscuro
+                      fontWeight="bold"
+                      display="flex"
+                      alignItems="center"
+                    >
+                      <Icon
+                        name={allowBankTransfer ? "check-circle" : "lock"}
+                        mr="1"
+                        className={!allowBankTransfer ? "shake-icon" : ""}
+                      />
+                      {allowBankTransfer ? "Permitido" : "No permitido"}
+                    </PseudoBox>
                   </Flex>
                 </Box>
               </Grid>
@@ -649,6 +758,39 @@ export default function ItemModal({ showModal, setModal, item }) {
                 </Badge>
               )}
 
+              {/* Payment Method Badge - Mejorado para mayor contraste */}
+              {!allowBankTransfer && (
+                <PseudoBox
+                  position="absolute"
+                  top={offerPrice ? "16" : "6"}
+                  right="6"
+                  px="4"
+                  py="2"
+                  borderRadius="md"
+                  bg="#FF3B30" // Rojo más brillante para mejor contraste
+                  color="white"
+                  fontSize="md"
+                  fontWeight="bold"
+                  zIndex="2"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  boxShadow="0 0 10px rgba(255, 59, 48, 0.7), 0 0 0 1px rgba(0, 0, 0, 0.1)"
+                  transition="all 0.3s ease"
+                  _hover={{
+                    transform: "scale(1.05)",
+                    boxShadow: "0 0 15px rgba(255, 59, 48, 0.9), 0 0 0 1px rgba(0, 0, 0, 0.2)",
+                  }}
+                  className="payment-restriction-badge"
+                  letterSpacing="0.5px"
+                >
+                  <PseudoBox as={Icon} name="lock" size="18px" mr="2" className="shake-icon" />
+                  <Text fontWeight="extrabold" textShadow="0px 1px 2px rgba(0,0,0,0.3)">
+                    Solo efectivo
+                  </Text>
+                </PseudoBox>
+              )}
+
               {/* Image Thumbnails */}
               <Flex position="absolute" bottom="6" left="0" right="0" justify="center" gap="4" zIndex="2">
                 {productImages.map((imgSrc, index) => (
@@ -720,6 +862,69 @@ export default function ItemModal({ showModal, setModal, item }) {
                     {description}
                   </Text>
                 </Box>
+
+                {/* Payment Method Information Box - Mejorado para mayor contraste */}
+                <PseudoBox
+                  bg={allowBankTransfer ? "green.50" : "#FFEFEF"} // Fondo más claro para el rojo
+                  p="5"
+                  borderRadius="lg"
+                  mb="6"
+                  boxShadow={
+                    allowBankTransfer
+                      ? "0 0 10px rgba(72, 187, 120, 0.3)"
+                      : "0 0 10px rgba(245, 101, 101, 0.3), 0 0 0 1px rgba(255, 0, 0, 0.1)"
+                  }
+                  position="relative"
+                  overflow="hidden"
+                  transition="all 0.3s ease"
+                  _hover={{
+                    transform: "translateY(-2px)",
+                    boxShadow: allowBankTransfer
+                      ? "0 0 15px rgba(72, 187, 120, 0.4)"
+                      : "0 0 15px rgba(245, 101, 101, 0.4), 0 0 0 1px rgba(255, 0, 0, 0.2)",
+                  }}
+                  className={!allowBankTransfer ? "fade-in-out" : ""}
+                >
+                  {/* Animated background gradient for restricted payment */}
+                  {!allowBankTransfer && (
+                    <Box
+                      position="absolute"
+                      top="0"
+                      left="0"
+                      right="0"
+                      bottom="0"
+                      bg="linear-gradient(45deg, rgba(245, 101, 101, 0.1) 0%, rgba(245, 101, 101, 0.2) 50%, rgba(245, 101, 101, 0.1) 100%)"
+                      className="pulse-bg"
+                      zIndex="0"
+                    />
+                  )}
+
+                  <Flex align="center" position="relative" zIndex="1">
+                    <PseudoBox
+                      as={Icon}
+                      name={allowBankTransfer ? "check-circle" : "lock"}
+                      size="28px"
+                      color={allowBankTransfer ? "green.500" : "#D10000"} // Rojo más oscuro
+                      mr="3"
+                      className={!allowBankTransfer ? "shake-icon" : ""}
+                    />
+                    <Box>
+                      <Text fontSize="xl" fontWeight="bold" color={allowBankTransfer ? "green.700" : "#D10000"}>
+                        {allowBankTransfer ? "Métodos de pago disponibles" : "Restricción de pago"}
+                      </Text>
+                      <Text
+                        fontSize="md"
+                        color={allowBankTransfer ? "green.600" : "#D10000"}
+                        mt="1"
+                        fontWeight="medium"
+                      >
+                        {allowBankTransfer
+                          ? "Este producto acepta pago en efectivo y transferencia bancaria"
+                          : "Este producto solo puede pagarse en efectivo"}
+                      </Text>
+                    </Box>
+                  </Flex>
+                </PseudoBox>
 
                 <Box bg={colorMode === "light" ? "gray.50" : "gray.700"} p="5" borderRadius="lg" mb="6" boxShadow="sm">
                   <Text fontSize="xl" fontWeight="bold" color={textColor} mb="3">

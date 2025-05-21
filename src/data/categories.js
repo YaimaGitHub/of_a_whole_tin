@@ -53,6 +53,19 @@ export const categoryHierarchy = {
       { name: "Accesorios", icon: "watch" },
     ],
   },
+
+//Fotografía y Accesorios
+Photography: {
+  icon: "Fotografía",
+    subcategories: [
+      { name: "Cámaras de fotos", icon: "Photography" },
+      { name: "Cámaras por marca", icon: "boot" },
+      { name: "Accesorios de fotografía", icon: "watch" },
+      { name: "Cámaras de vídeo", icon: "watch" },
+    ],
+  },
+
+  //Componentes de PC
   Components: {
     icon: "cpu",
     subcategories: [
@@ -66,6 +79,8 @@ export const categoryHierarchy = {
       { name: "Otros componentes", icon: "component" },
     ],
    },
+
+   //Ordenadores
 Computers: {
     icon: "Computers",
     subcategories: [

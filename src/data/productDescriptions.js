@@ -472,6 +472,17 @@ const productDescriptions = {
     description:
       "Disipador CPU premium de doble torre con 6 heatpipes de cobre y dos ventiladores NF-A15 PWM de 140mm. Capacidad de disipación excepcional de hasta 220W TDP, ideal para procesadores de gama alta y overclocking. Tecnología SecuFirm2 que garantiza presión de montaje óptima y compatibilidad con múltiples sockets (Intel y AMD). Pasta térmica NT-H1 de alto rendimiento incluida. Funcionamiento extremadamente silencioso incluso a plena carga (24.6 dB). Garantía de 6 años que refleja la calidad de construcción y materiales empleados.",
   },
+
+// Productos de Fotografía y Accesorios 
+  "photography-other-1": {
+    id: "photography-other-1",
+    title: "OM SYSTEM OLYMPUS VG-120",
+    subcategory: "Cámaras de fotos",
+    description:
+      "Cámara digital de 14 MP, zoom óptico gran angular 5X (1.024 in), LCD de 3 pulgadas",
+  },
+
+
 }
 
 export default productDescriptions

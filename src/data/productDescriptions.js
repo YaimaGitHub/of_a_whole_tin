@@ -193,10 +193,10 @@ const productDescriptions = {
   },
   33: {
     id: "33",
-    title: "Aliquam feugiat non chicken",
-    subcategory: "Poultry",
+    title: "Arroz Blanco RAINHA de 1 kg",
+    subcategory: "Arroz",
     description:
-      "Pechuga de pollo deshuesada y sin piel, procedente de aves criadas sin antibióticos. Corte magro con alto contenido proteico y bajo en grasa. Carne tierna y versátil, ideal para dietas saludables y deportistas. Perfecta para asar, saltear, hornear o preparar a la plancha. Envasada en atmósfera protectora para garantizar frescura y seguridad alimentaria.",
+      "Arroz con granos de excelente calidad en paquetes de 1kg.",
   },
 
   // Productos de Meat - Fish

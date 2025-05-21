@@ -62,7 +62,7 @@ export default function CategoryBanner() {
     },
     {
       id: "meat",
-      name: "Carnes",
+      name: "Pastas, granos y cereales",
       icon: BiDish,
       color: "#DD6B20",
       hoverColor: "#C05621",

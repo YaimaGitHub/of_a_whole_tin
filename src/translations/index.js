@@ -7,7 +7,7 @@ export const translations = {
       all: "Todos los Productos",
       appliances: "Electrodomésticos",
       pharmacy: "Farmacia F+",
-      meat: "Carnes",
+      meat: "Pastas, granos y cereales",
       bakery: "Panadería y Dulcería",
       drinks: "Bebidas",
       clothing: "Ropa, calzado",

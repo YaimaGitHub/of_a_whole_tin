@@ -21,10 +21,10 @@ export const categoryHierarchy = {
   meat: {
     icon: "beef",
     subcategories: [
-      { name: "Poultry", icon: "drumstick" },
+      { name: "Arroz", icon: "drumstick" },
       { name: "Beef", icon: "beef" },
       { name: "Pork", icon: "bacon" },
-      { name: "Fish", icon: "fish" },
+      { name: "Fishhhhhh", icon: "fish" },
     ],
   },
   bakery: {
@@ -97,7 +97,7 @@ Computers: {
 export const categoryDisplayNames = {
   Electrodomésticos: "Electrodomésticos",
   Farmacia: "Farmacia F+",
-  meat: "Carnes",
+  meat: "Pastas, granos y cereales",
   bakery: "Panadería y Dulcería",
   drink: "Bebidas",
   Ropa_calzado_accesorios: "Ropa, calzado y accesorios",

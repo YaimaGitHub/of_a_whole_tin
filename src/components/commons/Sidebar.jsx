@@ -95,7 +95,7 @@ export default function Sidebar({ showSidebar, setSidebar }) {
         />
         <CustomRadio
           value="meat"
-          title="Carnes"
+          title="Pastas, granos y cereales"
           icon={<Box as={BiDish} size="24px" mr="10" className="sidebar-icon category-meat" data-category="meat" />}
           colorScheme={categoryColors.meat}
         />

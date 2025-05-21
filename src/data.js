@@ -330,7 +330,7 @@ const products = [
     title1:"Precio de unidad" ,
     price: 700,
     offerPrice: null,
-    stock: 12,
+    stock: 30,
     img: "Pastas, granos y cereales/Arroz/e6qSIHlA_400x400.jpg",
     additionalImages: ["Pastas, granos y cereales/Arroz/e6qSIHlA_400x400 (2).jpg", "Pastas, granos y cereales/Arroz/e6qSIHlA_400x400-1.jpg"],
     category: "meat",

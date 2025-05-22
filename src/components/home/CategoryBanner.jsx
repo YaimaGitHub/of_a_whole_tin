@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Flex, Text, SimpleGrid, useColorMode } from "@chakra-ui/core"
+import { Box, Flex, Text, useColorMode } from "@chakra-ui/core"
 import { useRecoilState } from "recoil"
 import { selectedCategory } from "../../recoil/state"
 import {
@@ -129,54 +129,75 @@ export default function CategoryBanner() {
         Categorías
       </Text>
 
-      <SimpleGrid columns={{ base: 2, sm: 3, md: 5 }} spacing="4">
-        {categories.map((cat) => (
-          <Flex
-            key={cat.id}
-            direction="column"
-            align="center"
-            justify="center"
-            p="3"
-            borderRadius="lg"
-            bg={category === cat.id ? `${cat.color}15` : "transparent"}
-            borderWidth="1px"
-            borderColor={category === cat.id ? cat.color : borderColor}
-            cursor="pointer"
-            onClick={() => handleCategoryClick(cat.id)}
-            transition="all 0.3s"
-            _hover={{
-              transform: "translateY(-2px)",
-              boxShadow: "md",
-              borderColor: cat.hoverColor,
-            }}
-            role="group"
-          >
-            <Box
-              as={cat.icon}
-              size="30px"
-              color={category === cat.id ? cat.color : textColor}
-              mb="2"
+      <Box
+        overflowX="auto"
+        css={{
+          "&::-webkit-scrollbar": {
+            height: "8px",
+          },
+          "&::-webkit-scrollbar-track": {
+            backgroundColor: colorMode === "light" ? "#f1f1f1" : "#2D3748",
+            borderRadius: "4px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: colorMode === "light" ? "#CBD5E0" : "#4A5568",
+            borderRadius: "4px",
+          },
+          "&::-webkit-scrollbar-thumb:hover": {
+            backgroundColor: colorMode === "light" ? "#A0AEC0" : "#718096",
+          },
+        }}
+      >
+        <Flex minWidth="max-content" gap="4" pb="2">
+          {categories.map((cat) => (
+            <Flex
+              key={cat.id}
+              direction="column"
+              align="center"
+              justify="center"
+              p="3"
+              borderRadius="lg"
+              bg={category === cat.id ? `${cat.color}15` : "transparent"}
+              borderWidth="1px"
+              borderColor={category === cat.id ? cat.color : borderColor}
+              cursor="pointer"
+              onClick={() => handleCategoryClick(cat.id)}
               transition="all 0.3s"
-              _groupHover={{
-                transform: "scale(1.1)",
-                color: cat.color,
+              minWidth="100px"
+              _hover={{
+                transform: "translateY(-2px)",
+                boxShadow: "md",
+                borderColor: cat.hoverColor,
               }}
-            />
-            <Text
-              fontSize="sm"
-              fontWeight={category === cat.id ? "bold" : "medium"}
-              color={category === cat.id ? cat.color : textColor}
-              textAlign="center"
-              transition="all 0.3s"
-              _groupHover={{
-                color: cat.color,
-              }}
+              role="group"
             >
-              {cat.name}
-            </Text>
-          </Flex>
-        ))}
-      </SimpleGrid>
+              <Box
+                as={cat.icon}
+                size="30px"
+                color={category === cat.id ? cat.color : textColor}
+                mb="2"
+                transition="all 0.3s"
+                _groupHover={{
+                  transform: "scale(1.1)",
+                  color: cat.color,
+                }}
+              />
+              <Text
+                fontSize="sm"
+                fontWeight={category === cat.id ? "bold" : "medium"}
+                color={category === cat.id ? cat.color : textColor}
+                textAlign="center"
+                transition="all 0.3s"
+                _groupHover={{
+                  color: cat.color,
+                }}
+              >
+                {cat.name}
+              </Text>
+            </Flex>
+          ))}
+        </Flex>
+      </Box>
     </Box>
   )
 }

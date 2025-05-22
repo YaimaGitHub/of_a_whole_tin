@@ -8,7 +8,8 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="stylesheet" href="/styles.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.png" type="image/svg+xml" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
       <RecoilRoot>
         <ThemeProvider theme={theme}>

@@ -11,8 +11,6 @@ const products = [
     category: "Electrodomésticos",
     subcategory: "Cocina",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "0001",
@@ -30,8 +28,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-10",
   },
   {
     id: "9",
@@ -49,8 +45,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "2",
@@ -67,8 +61,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "77",
@@ -85,8 +77,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "3",
@@ -103,8 +93,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "4",
@@ -121,8 +109,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "888",
@@ -139,8 +125,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "5",
@@ -154,8 +138,6 @@ const products = [
     category: "Electrodomésticos",
     subcategory: "Refrigeración",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "6",
@@ -169,8 +151,6 @@ const products = [
     category: "Electrodomésticos",
     subcategory: "Refrigeración",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "7",
@@ -187,8 +167,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "789",
@@ -205,8 +183,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antiinflamatorios",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "00012",
@@ -223,8 +199,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "000",
@@ -242,8 +216,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antiinflamatorios",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "000222",
@@ -260,8 +232,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "6698",
@@ -278,8 +248,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "66",
@@ -297,8 +265,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Analgésicos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "87665",
@@ -315,8 +281,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "8",
@@ -333,8 +297,6 @@ const products = [
     category: "Farmacia",
     subcategory: "Antimicrobianos",
     allowBankTransfer: false,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "11",
@@ -348,8 +310,6 @@ const products = [
     category: "Electrodomésticos",
     subcategory: "Refrigeración",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "22",
@@ -363,26 +323,19 @@ const products = [
     category: "meat",
     subcategory: "Arroz",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "33",
     title: "Arroz Blanco RAINHA de 1 kg",
-    title1: "Precio de unidad",
+    title1:"Precio de unidad" ,
     price: 700,
     offerPrice: null,
     stock: 30,
     img: "Pastas, granos y cereales/Arroz/e6qSIHlA_400x400.jpg",
-    additionalImages: [
-      "Pastas, granos y cereales/Arroz/e6qSIHlA_400x400 (2).jpg",
-      "Pastas, granos y cereales/Arroz/e6qSIHlA_400x400-1.jpg",
-    ],
+    additionalImages: ["Pastas, granos y cereales/Arroz/e6qSIHlA_400x400 (2).jpg", "Pastas, granos y cereales/Arroz/e6qSIHlA_400x400-1.jpg"],
     category: "meat",
     subcategory: "Arroz",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "44",
@@ -396,8 +349,6 @@ const products = [
     category: "Electrodomésticos",
     subcategory: "Cocina",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "55",
@@ -411,8 +362,6 @@ const products = [
     category: "meat",
     subcategory: "Fish",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "88",
@@ -426,8 +375,6 @@ const products = [
     category: "Electrodomésticos",
     subcategory: "Cocina",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "99",
@@ -441,8 +388,6 @@ const products = [
     category: "meat",
     subcategory: "Fish",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "00",
@@ -456,8 +401,6 @@ const products = [
     category: "meat",
     subcategory: "Fish",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "111",
@@ -471,8 +414,6 @@ const products = [
     category: "meat",
     subcategory: "Fish",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "222",
@@ -486,8 +427,6 @@ const products = [
     category: "Electrodomésticos",
     subcategory: "Cocina",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "333",
@@ -501,8 +440,6 @@ const products = [
     category: "Electrodomésticos",
     subcategory: "Cocina",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "444",
@@ -516,8 +453,6 @@ const products = [
     category: "Electrodomésticos",
     subcategory: "Cocina",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "555",
@@ -531,8 +466,6 @@ const products = [
     category: "meat",
     subcategory: "Beef",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "666",
@@ -546,8 +479,6 @@ const products = [
     category: "meat",
     subcategory: "Beef",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "777",
@@ -561,8 +492,6 @@ const products = [
     category: "meat",
     subcategory: "Beef",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "999",
@@ -576,8 +505,6 @@ const products = [
     category: "Electrodomésticos",
     subcategory: "Refrigeración",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "1111",
@@ -591,8 +518,6 @@ const products = [
     category: "meat",
     subcategory: "Fish",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "bread1",
@@ -606,8 +531,6 @@ const products = [
     category: "bakery",
     subcategory: "Bread",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "bread2",
@@ -621,8 +544,6 @@ const products = [
     category: "bakery",
     subcategory: "Bread",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "bread3",
@@ -636,8 +557,6 @@ const products = [
     category: "bakery",
     subcategory: "Bread",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "toast",
@@ -651,8 +570,6 @@ const products = [
     category: "bakery",
     subcategory: "Toast",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "toast2",
@@ -666,8 +583,6 @@ const products = [
     category: "bakery",
     subcategory: "Toast",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "cookies",
@@ -681,8 +596,6 @@ const products = [
     category: "bakery",
     subcategory: "Cookies",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "cookies2",
@@ -696,8 +609,6 @@ const products = [
     category: "bakery",
     subcategory: "Cookies",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "cookies3",
@@ -711,8 +622,6 @@ const products = [
     category: "bakery",
     subcategory: "Cookies",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "muffin0",
@@ -730,8 +639,6 @@ const products = [
     category: "bakery",
     subcategory: "Muffin",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "muffin",
@@ -749,8 +656,6 @@ const products = [
     category: "bakery",
     subcategory: "Muffin",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "muffin2",
@@ -771,8 +676,6 @@ const products = [
     category: "bakery",
     subcategory: "Muffin",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "muffin3",
@@ -790,8 +693,6 @@ const products = [
     category: "bakery",
     subcategory: "Muffin",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "coffe",
@@ -805,8 +706,6 @@ const products = [
     category: "drink",
     subcategory: "Coffee",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "coffe2",
@@ -820,8 +719,6 @@ const products = [
     category: "drink",
     subcategory: "Coffee",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "coffe3",
@@ -835,8 +732,6 @@ const products = [
     category: "drink",
     subcategory: "Coffee",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "coffe4",
@@ -850,8 +745,6 @@ const products = [
     category: "drink",
     subcategory: "Coffee",
     allowBankTransfer: true,
-    isNew: false,
-    dateAdded: "2024-01-15",
   },
   {
     id: "coffe444",
@@ -870,8 +763,6 @@ const products = [
     category: "Ropa_calzado_accesorios",
     subcategory: "Calzado",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-15",
   },
   {
     id: "comp-mb-1",
@@ -889,8 +780,6 @@ const products = [
     category: "Components",
     subcategory: "Placas base",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-20",
   },
   {
     id: "comp-gpu-1",
@@ -908,8 +797,6 @@ const products = [
     category: "Components",
     subcategory: "Tarjetas gráficas",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-20",
   },
   {
     id: "comp-cpu-1",
@@ -927,8 +814,6 @@ const products = [
     category: "Components",
     subcategory: "Procesadores",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-20",
   },
   {
     id: "comp-hdd-1",
@@ -946,8 +831,6 @@ const products = [
     category: "Components",
     subcategory: "Discos duros",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-20",
   },
   {
     id: "comp-fan-1",
@@ -965,8 +848,6 @@ const products = [
     category: "Components",
     subcategory: "Refrigeración",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-20",
   },
   {
     id: "comp-ram-1",
@@ -984,8 +865,6 @@ const products = [
     category: "Components",
     subcategory: "RAM",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-20",
   },
   {
     id: "comp-psu-1",
@@ -1003,8 +882,6 @@ const products = [
     category: "Components",
     subcategory: "Fuentes de alimentación",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-20",
   },
   {
     id: "comp-other-1",
@@ -1022,10 +899,11 @@ const products = [
     category: "Components",
     subcategory: "Otros componentes",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-20",
   },
-  {
+
+
+
+{
     id: "photography-other-1",
     title: "OM SYSTEM OLYMPUS VG-120",
     title1: "",
@@ -1041,9 +919,10 @@ const products = [
     category: "Photography",
     subcategory: "Cámaras de fotos",
     allowBankTransfer: true,
-    isNew: true,
-    dateAdded: "2024-05-21",
   },
+
+
+
 ]
 
 export default products

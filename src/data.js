@@ -326,8 +326,8 @@ const products = [
   },
   {
     id: "33",
-    title: "Arroz Blanco RAINHA de 1 kg",
-    title1:"Precio de unidad" ,
+    title: "Arroz Blanco RAINHA (1 kg / 2.2 lb)",
+    title1:"Precio por Kilogramo" ,
     price: 700,
     offerPrice: null,
     stock: 30,

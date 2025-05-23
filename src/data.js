@@ -907,9 +907,9 @@ const products = [
     id: "photography-other-1",
     title: "OM SYSTEM OLYMPUS VG-120",
     title1: "",
-    price: 5000,
+    price: 3000,
     offerPrice: null,
-    stock: 6,
+    stock: 1,
     img: "Fotografía y Accesorios/Cámaras de fotos/OM SYSTEM OLYMPUS VG-120.jpg",
     additionalImages: [
       "Fotografía y Accesorios/Cámaras de fotos/OM SYSTEM OLYMPUS VG-120-2.jpg",
@@ -920,6 +920,26 @@ const products = [
     subcategory: "Cámaras de fotos",
     allowBankTransfer: true,
   },
+
+{
+    id: "photography-other-2",
+    title: "Sony DCR-SX40 Handycam®",
+    title1: "4GB flash memory/Memory Stick® camcorder (Silver)",
+    price: 6000,
+    offerPrice: null,
+    stock: 1,
+    img: "Fotografía y Accesorios/Cámaras de video/x158SX40-f.jpeg",
+    additionalImages: [
+      "Fotografía y Accesorios/Cámaras de video/h158SX40-b.jpeg",
+      "Fotografía y Accesorios/Cámaras de video/x158SX40-i.jpeg",
+      "Fotografía y Accesorios/Cámaras de video/x158SX40-w.jpeg",
+    ],
+    category: "Photography",
+    subcategory: "Cámaras de vídeo",
+    allowBankTransfer: true,
+  },
+
+
 
 
 

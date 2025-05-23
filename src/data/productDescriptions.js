@@ -482,6 +482,15 @@ const productDescriptions = {
       "Cámara digital de 14 MP, zoom óptico gran angular 5X (1.024 in), LCD de 3 pulgadas",
   },
 
+  // Productos de Fotografía y Accesorios 
+  "photography-other-2": {
+    id: "photography-other-2",
+    title: "Sony DCR-SX40 Handycam®",
+    subcategory: "Cámaras de fotos",
+    description:
+      "La videocámara DCR-SX40 de Sony es una excelente compañera para cualquier principiante que quiera aprender los conceptos básicos con una...",
+  },
+
 
 }
 

@@ -6,7 +6,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="stylesheet" href="/styles.css" />
-          <link rel="icon" href="/favicon.png" type="image/svg+xml" />
+          <link rel="icon" href="/logo.svg" type="image/svg+xml" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         </Head>
         <body>
